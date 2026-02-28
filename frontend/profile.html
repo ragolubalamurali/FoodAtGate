@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodAtGate | Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-utensils"></i>
+            FoodAtGate
+        </div>
+        <nav></nav>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="profile-container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <div class="avatar-circle" id="user-avatar">
+                        <span id="user-initials"></span>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h1 id="user-fullname">Loading...</h1>
+                    <p id="user-role-badge" class="role-badge">User</p>
+                    <p class="user-email" id="user-email-display"></p>
+                </div>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="profile-content">
+                <!-- Personal Information -->
+                <div class="profile-card">
+                    <div class="card-header">
+                        <h2>👤 Personal Information</h2>
+                        <p>Update your personal details</p>
+                    </div>
+                    <form id="profile-form" class="profile-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profile-role">Account Type</label>
+                                <div class="input-with-icon">
+                                    <input type="text" id="profile-role" readonly>
+                                    <div class="input-icon">🏷️</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profile-name">Full Name</label>
+                                <div class="input-with-icon">
+                                    <input type="text" id="profile-name" required placeholder="Enter your full name">
+                                    <div class="input-icon">📝</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-email">Email Address</label>
+                                <div class="input-with-icon">
+                                    <input type="email" id="profile-email" required placeholder="Enter your email">
+                                    <div class="input-icon">✉️</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">💾 Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Security Settings -->
+                <div class="profile-card">
+                    <div class="card-header">
+                        <h2>🔐 Security Settings</h2>
+                        <p>Manage your password and security preferences</p>
+                    </div>
+                    <form id="password-form" class="profile-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profile-current-password">Current Password</label>
+                                <div class="input-with-icon">
+                                    <input type="password" id="profile-current-password"
+                                        placeholder="Enter current password">
+                                    <div class="input-icon">🔑</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-new-password">New Password</label>
+                                <div class="input-with-icon">
+                                    <input type="password" id="profile-new-password" placeholder="Enter new password">
+                                    <div class="input-icon">🛡️</div>
+                                </div>
+                                <small>Leave blank to keep current password</small>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-secondary">🔄 Update Password</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Account Actions -->
+                <div class="profile-card danger-zone">
+                    <div class="card-header">
+                        <h2>⚠️ Account Actions</h2>
+                        <p>Danger zone - handle with care</p>
+                    </div>
+                    <div class="account-actions">
+                        <button id="logout-btn" class="btn-danger">
+                            🚪 Logout from Account
+                        </button>
+                        <p class="action-note">You will be redirected to the login page</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div id="profile-message" class="message-container"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 FoodAtGate</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>

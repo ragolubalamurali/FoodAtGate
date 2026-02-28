@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodAtGate | Manage Menu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-utensils"></i>
+            FoodAtGate
+        </div>
+        <nav></nav>
+    </header>
+
+    <section class="menu">
+        <div class="manage-header">
+            <h2>Manage Menu</h2>
+            <button id="add-item-btn" class="btn btn-orange">
+                <i class="fa-solid fa-plus"></i> Add New Item
+            </button>
+        </div>
+        <div id="menu-container" class="menu-grid">
+            <!-- JS will dynamically load menu items here -->
+        </div>
+    </section>
+
+    <!-- Add/Edit Item Modal -->
+    <div id="item-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Add Item</h3>
+                <button type="button" class="modal-close-btn"
+                    onclick="document.getElementById('item-modal').classList.remove('show')">&times;</button>
+            </div>
+            <form id="item-form">
+                <input type="hidden" id="item-id">
+                <div class="form-group">
+                    <label for="item-name">Name</label>
+                    <input type="text" id="item-name" required placeholder="Enter food name">
+                </div>
+                <div class="form-group">
+                    <label for="item-description">Description</label>
+                    <textarea id="item-description" required placeholder="Enter description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="item-price">Price (₹)</label>
+                    <input type="number" id="item-price" required placeholder="Enter price" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="item-image">Image URL</label>
+                    <input type="url" id="item-image" placeholder="Enter image URL (optional)">
+                </div>
+                <div class="form-group">
+                    <label for="item-restaurant">Restaurant</label>
+                    <select id="item-restaurant" required>
+                        <option value="">Loading restaurants...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-category">Category</label>
+                    <select id="item-category">
+                        <option value="veg">🟢 Veg</option>
+                        <option value="non-veg">🔴 Non-Veg</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="cancel-btn" class="btn-outline">Cancel</button>
+                    <button type="submit" class="btn btn-orange">Save Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 FoodAtGate</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/manage-menu.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodAtGate | Manage Restaurants</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-utensils"></i>
+            FoodAtGate
+        </div>
+        <nav></nav>
+    </header>
+
+    <!-- Manage Restaurants Section -->
+    <section class="menu">
+        <div class="manage-header">
+            <h2>Manage Restaurants</h2>
+            <button id="add-restaurant-btn" class="btn btn-orange">
+                <i class="fa-solid fa-plus"></i> Add New Restaurant
+            </button>
+        </div>
+        <div id="restaurants-container" class="menu-grid">
+            <!-- JS will dynamically load restaurants here -->
+        </div>
+    </section>
+
+    <!-- Add/Edit Restaurant Modal -->
+    <div id="restaurant-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="restaurant-modal-title">Add Restaurant</h3>
+                <button type="button" class="modal-close-btn"
+                    onclick="document.getElementById('restaurant-modal').classList.remove('show')">&times;</button>
+            </div>
+            <form id="restaurant-form">
+                <input type="hidden" id="restaurant-id">
+                <div class="form-group">
+                    <label for="restaurant-name">Restaurant Name</label>
+                    <input type="text" id="restaurant-name" required placeholder="Enter restaurant name">
+                </div>
+                <div class="form-group">
+                    <label for="restaurant-location">Location</label>
+                    <input type="text" id="restaurant-location" required placeholder="Enter location">
+                </div>
+                <div class="form-group">
+                    <label for="restaurant-contact">Contact</label>
+                    <input type="text" id="restaurant-contact" required placeholder="Enter contact number">
+                </div>
+
+                <!-- Food Items Section (shown when adding/editing restaurant) -->
+                <div id="food-items-section" style="display: none;">
+                    <h4
+                        style="color: var(--text-primary); margin: 20px 0 12px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+                        <i class="fa-solid fa-utensils"></i> Food Items
+                    </h4>
+                    <div id="food-items-list">
+                        <!-- Existing food items will be listed here -->
+                    </div>
+                    <button type="button" id="add-food-item-btn" class="btn-outline"
+                        style="margin-top: 10px; width: 100%;">
+                        <i class="fa-solid fa-plus"></i> Add Food Item
+                    </button>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="restaurant-cancel-btn" class="btn-outline">Cancel</button>
+                    <button type="submit" class="btn btn-orange">Save Restaurant</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Food Item Modal -->
+    <div id="food-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="food-modal-title">Add Food Item</h3>
+                <button type="button" class="modal-close-btn"
+                    onclick="document.getElementById('food-modal').classList.remove('show')">&times;</button>
+            </div>
+            <form id="food-form">
+                <input type="hidden" id="food-id">
+                <input type="hidden" id="food-restaurant-id">
+                <div class="form-group">
+                    <label for="food-name">Food Name</label>
+                    <input type="text" id="food-name" required placeholder="Enter food name">
+                </div>
+                <div class="form-group">
+                    <label for="food-description">Description</label>
+                    <textarea id="food-description" required placeholder="Enter food description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="food-price">Price (₹)</label>
+                    <input type="number" id="food-price" required placeholder="Enter price" min="1">
+                </div>
+                <div class="form-group">
+                    <label for="food-image">Image URL</label>
+                    <input type="url" id="food-image" placeholder="Enter image URL (optional)">
+                </div>
+                <div class="form-group">
+                    <label for="food-category">Category</label>
+                    <select id="food-category">
+                        <option value="veg">🟢 Veg</option>
+                        <option value="non-veg">🔴 Non-Veg</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="food-cancel-btn" class="btn-outline">Cancel</button>
+                    <button type="submit" class="btn btn-orange">Save Food Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 FoodAtGate</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/manage-restaurants.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

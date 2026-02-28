@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodAtGate | Menu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-utensils"></i>
+            FoodAtGate
+        </div>
+        <nav></nav>
+    </header>
+
+    <section class="menu">
+        <h2>Our Menu</h2>
+
+        <div id="restaurant-view">
+            <h3>Select a Restaurant</h3>
+            <div id="restaurants-container" class="menu-grid">
+                <!-- JS will dynamically load restaurants here -->
+            </div>
+        </div>
+
+        <div id="food-view" style="display: none;">
+            <button id="back-to-restaurants-btn" class="btn-outline" style="margin-bottom: 20px;">
+                <i class="fa-solid fa-arrow-left"></i> Back to Restaurants
+            </button>
+            <h3 id="selected-restaurant-name"></h3>
+            <div class="menu-controls">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search for food items..." class="search-input">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="veg">🟢 Veg</button>
+                    <button class="filter-btn" data-filter="non-veg">🔴 Non-Veg</button>
+                </div>
+            </div>
+            <div id="menu-container" class="menu-grid">
+                <!-- JS will dynamically load food items here -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 FoodAtGate</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

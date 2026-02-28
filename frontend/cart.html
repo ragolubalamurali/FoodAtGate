@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodAtGate | Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-utensils"></i>
+            FoodAtGate
+        </div>
+        <nav></nav>
+    </header>
+
+    <section class="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items">
+            <!-- JS loads cart items here -->
+        </div>
+
+        <div class="cart-summary">
+            <h3>Total: ₹<span id="cart-total">0</span></h3>
+            <button id="place-order-btn" class="btn btn-orange">
+                <i class="fa-solid fa-check-circle"></i> Place Order
+            </button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 FoodAtGate</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
