@@ -2,7 +2,7 @@
 
 A Full Stack Food Ordering System built using:
 
-- Frontend: HTML / CSS / JavaScript (or React)
+- Frontend: HTML / CSS / JavaScript 
 - Backend: Node.js + Express.js
 - Database: MongoDB Atlas
 
