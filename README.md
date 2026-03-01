@@ -25,7 +25,7 @@ A Full Stack Food Ordering System built using:
 ### Frontend
 - HTML
 - CSS
-- JavaScript (or React)
+- JavaScript 
 
 ### Backend
 - Node.js
