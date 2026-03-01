@@ -7,11 +7,22 @@ document.addEventListener('DOMContentLoaded', async function () {
     const modal = document.getElementById('item-modal');
     const form = document.getElementById('item-form');
     const cancelBtn = document.getElementById('cancel-btn');
+    const imageInput = document.getElementById('item-image');
+    const imagePreview = document.getElementById('item-image-preview');
+
+    imageInput.addEventListener('input', () => {
+        imagePreview.src = imageInput.value || 'https://via.placeholder.com/400x200?text=No+Image';
+    });
+
+    imagePreview.addEventListener('error', () => {
+        imagePreview.src = 'https://via.placeholder.com/400x200?text=No+Image';
+    });
 
     addBtn.addEventListener('click', () => {
         document.getElementById('modal-title').textContent = 'Add Item';
         document.getElementById('item-id').value = '';
         form.reset();
+        imagePreview.src = 'https://via.placeholder.com/400x200?text=No+Image';
         modal.classList.add('show');
     });
 
@@ -104,6 +115,7 @@ function editItem(id) {
     document.getElementById('item-description').value = item.description || '';
     document.getElementById('item-price').value = item.price;
     document.getElementById('item-image').value = item.image || '';
+    document.getElementById('item-image-preview').src = item.image || 'https://via.placeholder.com/400x200?text=No+Image';
 
     const categoryEl = document.getElementById('item-category');
     if (categoryEl) {

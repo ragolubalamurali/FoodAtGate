@@ -30,13 +30,25 @@
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="text" id="email" required placeholder="Enter your email">
-                        <div class="input-icon">👤</div>
+                        <div class="input-icon"><i class="fa-regular fa-envelope"></i></div>
                     </div>
 
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" id="password" required placeholder="Enter your password">
-                        <div class="input-icon">🔒</div>
+                        <div class="input-icon" style="cursor: pointer; pointer-events: auto;" onclick="
+                            const pwd = document.getElementById('password');
+                            const icon = this.querySelector('i');
+                            if (pwd.type === 'password') {
+                                pwd.type = 'text';
+                                icon.classList.remove('fa-eye');
+                                icon.classList.add('fa-eye-slash');
+                            } else {
+                                pwd.type = 'password';
+                                icon.classList.remove('fa-eye-slash');
+                                icon.classList.add('fa-eye');
+                            }
+                        "><i class="fa-regular fa-eye"></i></div>
                     </div>
 
                     <button type="submit" class="auth-btn">Sign In</button>

@@ -51,11 +51,15 @@
                 </div>
                 <div class="form-group">
                     <label for="item-price">Price (₹)</label>
-                    <input type="number" id="item-price" required placeholder="Enter price" min="1">
+                    <input type="text" id="item-price" required placeholder="Enter price"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                 </div>
                 <div class="form-group">
                     <label for="item-image">Image URL</label>
                     <input type="url" id="item-image" placeholder="Enter image URL (optional)">
+                    <img id="item-image-preview" src="https://via.placeholder.com/400x200?text=No+Image"
+                        alt="Image preview"
+                        style="margin-top: 10px; width: 100%; border-radius: 8px; background: #ccc; display: block; height: 150px; object-fit: cover;">
                 </div>
                 <div class="form-group">
                     <label for="item-restaurant">Restaurant</label>

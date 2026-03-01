@@ -30,28 +30,85 @@
                     <div class="form-group">
                         <label for="reg-name">Full Name</label>
                         <input type="text" id="reg-name" required placeholder="Enter your full name">
-                        <div class="input-icon">📝</div>
+                        <div class="input-icon"><i class="fa-regular fa-user"></i></div>
                     </div>
 
                     <div class="form-group">
                         <label for="reg-email">Email Address</label>
                         <input type="email" id="reg-email" required placeholder="Enter your email">
-                        <div class="input-icon">✉️</div>
+                        <div class="input-icon"><i class="fa-regular fa-envelope"></i></div>
                     </div>
 
                     <div class="form-group">
                         <label for="reg-password">Password</label>
                         <input type="password" id="reg-password" required placeholder="Create a password">
-                        <div class="input-icon">🔒</div>
+                        <div class="input-icon" style="cursor: pointer; pointer-events: auto;" onclick="
+                            var pwd_input = document.getElementById('reg-password');
+                            var icon_el = this.querySelector('i');
+                            if (pwd_input.type === 'password') {
+                                pwd_input.type = 'text';
+                                icon_el.classList.remove('fa-eye');
+                                icon_el.classList.add('fa-eye-slash');
+                            } else {
+                                pwd_input.type = 'password';
+                                icon_el.classList.remove('fa-eye-slash');
+                                icon_el.classList.add('fa-eye');
+                            }
+                        "><i class="fa-regular fa-eye"></i></div>
                     </div>
 
                     <div class="form-group">
                         <label for="reg-confirm-password">Confirm Password</label>
                         <input type="password" id="reg-confirm-password" required placeholder="Confirm your password">
-                        <div class="input-icon">🔐</div>
+                        <div class="input-icon" style="cursor: pointer; pointer-events: auto;" onclick="
+                            var pwd_conf_input = document.getElementById('reg-confirm-password');
+                            var icon_conf_el = this.querySelector('i');
+                            if (pwd_conf_input.type === 'password') {
+                                pwd_conf_input.type = 'text';
+                                icon_conf_el.classList.remove('fa-eye');
+                                icon_conf_el.classList.add('fa-eye-slash');
+                            } else {
+                                pwd_conf_input.type = 'password';
+                                icon_conf_el.classList.remove('fa-eye-slash');
+                                icon_conf_el.classList.add('fa-eye');
+                            }
+                        "><i class="fa-regular fa-eye"></i></div>
                     </div>
 
-                    <button type="submit" class="auth-btn">Create Account</button>
+                    <div class="terms-group"
+                        style="display: flex; align-items: center; justify-content: flex-start; gap: 10px; margin-bottom: 24px;">
+                        <input type="checkbox" id="reg-agreement"
+                            style="width: 18px !important; height: 18px !important; margin: 0; padding: 0 !important; cursor: pointer; flex-shrink: 0; accent-color: var(--primary, #ff6b00); appearance: auto !important; position: static !important;">
+                        <label for="reg-agreement"
+                            style="margin: 0; padding: 0; cursor: pointer; font-size: 0.95rem; color: var(--text-secondary, #555); font-weight: 500; display: inline-flex; align-items: center; text-transform: none;">
+                            I accept the&nbsp;<a href="agreement.html" target="_blank"
+                                style="color: var(--primary, #ff6b00); text-decoration: underline; font-weight: 600;">Terms
+                                and
+                                Conditions</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" id="reg-submit-btn" class="auth-btn" disabled
+                        style="opacity: 0.5; cursor: not-allowed;">Create Account</button>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            const agreeCheckbox = document.getElementById("reg-agreement");
+                            const submitBtn = document.getElementById("reg-submit-btn");
+
+                            agreeCheckbox.addEventListener("change", function () {
+                                if (this.checked) {
+                                    submitBtn.disabled = false;
+                                    submitBtn.style.opacity = "1";
+                                    submitBtn.style.cursor = "pointer";
+                                } else {
+                                    submitBtn.disabled = true;
+                                    submitBtn.style.opacity = "0.5";
+                                    submitBtn.style.cursor = "not-allowed";
+                                }
+                            });
+                        });
+                    </script>
                 </form>
 
                 <div class="auth-footer">
