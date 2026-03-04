@@ -36,4 +36,3 @@ A Full Stack Food Ordering System built using:
 
 ---
 
-## 📂 Project Structure
