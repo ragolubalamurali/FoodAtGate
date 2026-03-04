@@ -86,10 +86,10 @@ async function apiGetMe() {
     return data;
 }
 
-async function apiUpdateProfile(name, email) {
+async function apiUpdateProfile(name, email, phone, address) {
     const data = await apiCall('/auth/profile', {
         method: 'PUT',
-        body: JSON.stringify({ name, email })
+        body: JSON.stringify({ name, email, phone, address })
     });
     saveUserData(data);
     return data;

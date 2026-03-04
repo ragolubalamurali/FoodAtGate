@@ -18,6 +18,12 @@ exports.register = async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
+    // Restrict registration to @srisivani.com domain
+    const emailDomain = email.split("@")[1];
+    if (!emailDomain || emailDomain.toLowerCase() !== "srisivani.com") {
+      return res.status(400).json({ message: "Only @srisivani.com email addresses are allowed to register" });
+    }
+
     const userExists = await User.findOne({ email });
     if (userExists)
       return res.status(400).json({ message: "User already exists" });
@@ -34,6 +40,8 @@ exports.register = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      phone: user.phone || "",
+      address: user.address || "",
       role: user.role,
       createdAt: user.createdAt
     };
@@ -63,6 +71,8 @@ exports.login = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      phone: user.phone || "",
+      address: user.address || "",
       role: user.role,
       createdAt: user.createdAt
     };
@@ -88,7 +98,7 @@ exports.getMe = async (req, res) => {
 
 exports.updateProfile = async (req, res) => {
   try {
-    const { name, email } = req.body;
+    const { name, email, phone, address } = req.body;
     const user = await User.findById(req.user.id);
     if (!user) return res.status(404).json({ message: "User not found" });
 
@@ -100,6 +110,8 @@ exports.updateProfile = async (req, res) => {
 
     if (name) user.name = name;
     if (email) user.email = email;
+    if (phone !== undefined) user.phone = phone;
+    if (address !== undefined) user.address = address;
 
     await user.save();
 
@@ -107,6 +119,8 @@ exports.updateProfile = async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      phone: user.phone || "",
+      address: user.address || "",
       role: user.role,
       createdAt: user.createdAt
     };

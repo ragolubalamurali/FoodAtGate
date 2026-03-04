@@ -2014,3 +2014,185 @@ footer p {
         padding: 5px 8px;
     }
 }
+
+/* ===============================
+   DELIVERY MODAL
+================================= */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-container {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--border-color);
+    animation: modalSlideUp 0.35s ease-out;
+    position: relative;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 28px;
+    position: relative;
+}
+
+.modal-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.modal-header p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: var(--bg-primary);
+    border-radius: 50%;
+    font-size: 22px;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.modal-close-btn:hover {
+    background: var(--danger-bg);
+    color: var(--danger);
+    border-color: var(--danger);
+    transform: rotate(90deg);
+}
+
+.modal-form .form-group {
+    margin-bottom: 20px;
+}
+
+.modal-form .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.modal-form .form-group input,
+.modal-form .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    background: var(--bg-input);
+    outline: none;
+    transition: var(--transition);
+    resize: vertical;
+}
+
+.modal-form .form-group input:focus,
+.modal-form .form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+    background: var(--bg-card);
+}
+
+.modal-form .form-group input::placeholder,
+.modal-form .form-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.modal-actions .btn {
+    flex: 1;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 15px;
+}
+
+.btn-outline-modal {
+    background: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 13px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Inter', sans-serif;
+    flex: 1;
+    text-align: center;
+}
+
+.btn-outline-modal:hover {
+    border-color: var(--danger);
+    color: var(--danger);
+    background: var(--danger-bg);
+}
+
+@media (max-width: 480px) {
+    .modal-container {
+        padding: 24px 20px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-header h2 {
+        font-size: 20px;
+    }
+}

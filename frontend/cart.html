@@ -33,6 +33,35 @@
         </div>
     </section>
 
+    <!-- Delivery Details Modal -->
+    <div id="delivery-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>📦 Delivery Details</h2>
+                <p>Please provide your phone number and delivery address</p>
+                <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+            </div>
+            <form id="delivery-form" class="modal-form">
+                <div class="form-group">
+                    <label for="delivery-phone">📱 Phone Number</label>
+                    <input type="tel" id="delivery-phone" required placeholder="Enter your phone number"
+                        pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
+                </div>
+                <div class="form-group">
+                    <label for="delivery-address">📍 Delivery Address</label>
+                    <textarea id="delivery-address" required placeholder="Enter your delivery address"
+                        rows="3"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="modal-cancel-btn" class="btn btn-outline-modal">Cancel</button>
+                    <button type="submit" class="btn btn-orange">
+                        <i class="fa-solid fa-check-circle"></i> Confirm & Place Order
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <footer>
         <p>© 2026 FoodAtGate</p>
     </footer>

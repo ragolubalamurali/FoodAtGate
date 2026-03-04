@@ -41,6 +41,8 @@ async function loadProfile() {
         // Fill form fields
         document.getElementById('profile-name').value = user.name || '';
         document.getElementById('profile-email').value = user.email || '';
+        document.getElementById('profile-phone').value = user.phone || '';
+        document.getElementById('profile-address').value = user.address || '';
         document.getElementById('profile-role').value = user.role === 'admin' ? 'Administrator' : 'Student';
     } catch (error) {
         showMessage('Failed to load profile: ' + error.message, 'error');
@@ -64,6 +66,8 @@ if (profileForm) {
 
         const name = document.getElementById('profile-name').value.trim();
         const email = document.getElementById('profile-email').value.trim();
+        const phone = document.getElementById('profile-phone').value.trim();
+        const address = document.getElementById('profile-address').value.trim();
 
         if (!name) {
             showMessage('Please enter your full name', 'error');
@@ -82,7 +86,7 @@ if (profileForm) {
         }
 
         try {
-            await apiUpdateProfile(name, email);
+            await apiUpdateProfile(name, email, phone, address);
             showMessage('Profile updated successfully!', 'success');
             loadProfile();
         } catch (error) {

@@ -20,6 +20,8 @@ const orderSchema = new mongoose.Schema(
       }
     ],
     totalAmount: Number,
+    phone: String,
+    address: String,
     status: {
       type: String,
       enum: ["Pending", "Preparing", "Ready", "Delivered"],

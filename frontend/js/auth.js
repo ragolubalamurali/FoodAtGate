@@ -110,6 +110,14 @@ if (registerForm) {
 
         const messageEl = document.getElementById('register-message');
 
+        // Validate email domain
+        const emailDomain = email.split('@')[1];
+        if (!emailDomain || emailDomain.toLowerCase() !== 'srisivani.com') {
+            messageEl.textContent = 'Only @srisivani.com email addresses are allowed to register';
+            messageEl.style.color = 'var(--danger)';
+            return;
+        }
+
         // Validate password confirmation
         if (password !== confirmPassword) {
             messageEl.textContent = 'Passwords do not match';
